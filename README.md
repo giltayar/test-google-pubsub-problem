@@ -27,3 +27,10 @@ To publish 100 messages, run:
 ```
 
 Once published, you should see them in the listener
+
+## To test it in k8s
+
+* Create a node pool using `gcloud container node-pools create test-google-pubsub-problem --scopes pubsub --machine-type=n1-standard-8 --node-labels=test-google-pubsub-problem=true --num-nodes=3 --cluster=prod`
+* Now create the deployment using `kc apply -f deploy/deploy.yaml`. This will create 20 instances of the listener
+* Create some messages using `./scripts/run-test-google-pubsub-problem.js -e foo -m message -c 100` and
+  use `kc logs -l run=test-google-pubsub-problem` to view the logs of the listeners.
