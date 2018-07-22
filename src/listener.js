@@ -19,7 +19,6 @@ async function listener(env, project, count, wait) {
     console.log('listen time (secs): %d', Math.floor((Date.now() - start) / 1000))
     console.log(message.toString())
 
-
     console.log('waiting...')
     await p(setTimeout)(wait * 1000)
 
