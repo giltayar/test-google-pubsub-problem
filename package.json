@@ -21,7 +21,12 @@
     "start": "scripts/run-test-google-pubsub-problem.js",
     "test": "mocha --no-timeouts --trace-warnings 'test/unit/*.test.js' 'test/it/*.test.js' 'test/e2e/*.test.js' && npm run eslint",
     "eslint": "eslint '**/*.js'",
-    "prepublishOnly": "npm version patch"
+    "build": "#",
+    "postbuild": "npm run build:docker",
+    "prepublishOnly": "npm version patch",
+    "postpublish": "npm run publish:docker",
+    "build:docker": "docker build -t giltayar/test-google-pubsub-problem .",
+    "publish:docker": "docker push giltayar/test-google-pubsub-problem"
   },
   "keywords": [
     "applitools",
