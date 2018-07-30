@@ -15,7 +15,9 @@
   },
   "bin": {
     "test-google-pubsub-problem": "scripts/run-test-google-pubsub-problem.js",
-    "create-backing-pubsub-topics": "scripts/create-backing-pubsub-topics.js"
+    "create-backing-pubsub-topics": "scripts/create-backing-pubsub-topics.js",
+    "create-bucket": "scripts/create-bucket.js",
+    "put-blob": "scripts/put-blob.js"
   },
   "scripts": {
     "start": "scripts/run-test-google-pubsub-problem.js",
@@ -42,7 +44,10 @@
   },
   "dependencies": {
     "@google-cloud/pubsub": "^0.19.0",
+    "@google-cloud/storage": "^1.7.0",
+    "@rauschma/stringio": "^1.4.0",
     "debug": "^3.1.0",
+    "uuid": "^3.3.2",
     "yargs": "^10.0.3"
   },
   "devDependencies": {
